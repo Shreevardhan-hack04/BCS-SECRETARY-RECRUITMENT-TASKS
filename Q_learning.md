@@ -1,15 +1,15 @@
-Environment Design
+Environment Design:
 The GridWorld is based on a fixed map of size 15x10 containing walls and free paths. At the beginning of each episode:
 Harry(blue circle), the Cup(yellow circle), and the Death Eater(red circle) are randomly placed in free cells(obstacle free obviously)
 The Death Eater follows Harry using Breadth-First Search(BFS).
 Harry navigates using a discrete action space: up, down, left, right.
 
-Since both Harry’s and the Death Eater’s positions influence decision-making, the Q-table is indexed using both:
+Since both Harry’s and the Death Eater’s positions influence decision-making, the Q-table is indexed using both.
 Q[harry_state,death_state,action] (a 3-D array)
 where, harry_state and death_state are flattened indices of Harry’s and Death Eater’s positions on the grid.
 I thought of including the cup's position too in the Q-table but in that case the run time was very high so I excluded it. 
 
-Reward Design
+Reward Design:
 The reward function is shaped to:
 Encourage goal-reaching: +75 if Harry wins the Cup
 Discourage capture: -75 if Harry is caught by the Death Eater
